@@ -3,34 +3,27 @@
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
 
-Route::get('/home', function () {
-    return "Ini  halaman home";
+Route::get('/', function () {
+    return view('web.homepage');
 });
 
-Route::get('/Login', function () {
-    return "Ini  halaman Login";
+Route::get('/products', function () {
+    return view("web.halamanproduk");
 });
 
-Route::get('/Products', function () {
-    return "Ini  halaman Products";
-});
 
 Route::get('/Cart', function () {
-    return "Ini  halaman Cart";
+    return view("web.halamanCart");
 });
 
 Route::get('/Checkout', function () {
-    return "Ini  halaman Checkout";
+    return view("web.halamanCheckout");
 });
 
 Route::get('/Orders', function () {
     return "Ini  halaman Orders";
 });
 
-
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
