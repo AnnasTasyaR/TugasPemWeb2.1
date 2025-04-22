@@ -2,28 +2,16 @@
 
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
+use App\Http\Controllers\HomepageController;
 
-Route::get('/', function () {
-    return view('web.homepage');
-});
+Route::get('/',[HomepageController::class,'index']); 
 
-Route::get('/products', function () {
-    return view("web.halamanproduk");
-});
-
-
-Route::get('/Cart', function () {
-    return view("web.halamanCart");
-});
-
-Route::get('/Checkout', function () {
-    return view("web.halamanCheckout");
-});
-
-Route::get('/Orders', function () {
-    return "Ini  halaman Orders";
-});
-
+Route::get('products', [HomepageController::class, 'products']); 
+Route::get('product/{slug}', [HomepageController::class, 'product']); 
+Route::get('categories',[HomepageController::class, 'categories']); 
+Route::get('category/{slug}', [HomepageController::class, 'category']); 
+Route::get('cart', [HomepageController::class, 'cart']); 
+Route::get('checkout', [HomepageController::class, 'checkout']);
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
